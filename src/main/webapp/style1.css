@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.quiz_wrapper{
+    width:100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url(quiz_bg.png);
+    background-size: cover;
+}
+
+.app{
+    width: 1200px;
+    margin: 1rem auto;
+}
+.app_logo{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.app_header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.question{
+    margin: 1rem 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 0px;
+}
+.info{
+    display: flex;
+    gap: 0px 2rem;
+    font-size: 1.5rem;
+}
+.display_question{
+    background-color: #7D5C65;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.459);
+}
+.app_team{
+    padding: 8px 15px;
+    font-style: italic;
+    font-weight: bold;
+}
+.solved_question{
+    width: 12px;
+    border-radius: 50%;
+    background-color: #F5D6BA;
+    padding: 2px 10px;
+    color: black;
+}
+.question_header{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 1rem 2rem 1rem 1rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.308);
+    backdrop-filter: blur(5px);
+}
+.name{
+    width: 100%;
+    min-height: 300px;
+    font-size: 1.2rem;
+    word-spacing: 0.4rem;
+    padding: 0px 1rem;
+}
+.question_footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 1rem;
+    padding-right: 2rem;
+}
+
+.control{
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}
+.current{
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+.total{
+    color: rgba(0, 0, 0, 0.801);
+}
+
+.btn{
+    border: none;
+    appearance: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: #f39460;
+    background-color: #084C61;
+    color: whitesmoke;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.699);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+/* Style the custom file upload label */
+.file-upload{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    padding: 5px 0px 5px 15px;
+    border-radius: 10px;
+    background-color: #f39460;
+    background-color: #084C61;
+    color: whitesmoke;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.699);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+.file-upload:hover{
+    background-color: #F5D6BA;
+    color: black;
+}
+
+.btn:hover{
+    background-color: #F5D6BA;
+    color: black;
+}
+@media only screen and (max-width: 1200px) {
+    .app {
+      width: 992px;
+      margin: 1rem auto;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .app {
+      width: 760px;
+      margin: 1rem auto;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .app {
+      width: 600px;
+      margin: 1rem auto;
+    }
+}

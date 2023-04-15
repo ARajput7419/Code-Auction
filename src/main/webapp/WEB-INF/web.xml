@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+    <display-name>Code Auction</display-name>
+
+    <absolute-ordering />
+
+    <welcome-file-list>
+        <welcome-file>/home.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>problems</servlet-name>
+        <jsp-file>/problems.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>problems</servlet-name>
+        <url-pattern>/problems</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registration</servlet-name>
+        <servlet-class>servlets.Registration</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>join</servlet-name>
+        <servlet-class>servlets.Join</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>join</servlet-name>
+        <url-pattern>/join</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>login</filter-name>
+        <filter-class>filters.Login</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>login</filter-name>
+        <url-pattern>/problems</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>problem_collector</filter-name>
+        <filter-class>filters.QuestionCollector</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>problem_collector</filter-name>
+        <url-pattern>/problems</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>servlet_login</servlet-name>
+        <jsp-file>/login.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet_login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>reset</servlet-name>
+        <servlet-class>servlets.Reset</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reset</servlet-name>
+        <url-pattern>/reset</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>submit</servlet-name>
+        <servlet-class>servlets.Submit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>submit</servlet-name>
+        <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>bid</servlet-name>
+        <servlet-class>servlets.Bid</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bid</servlet-name>
+        <url-pattern>/bid</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>dashboard</servlet-name>
+        <jsp-file>/dashboard.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dashboard</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>admin_login_filter</filter-name>
+        <filter-class>filters.AdminLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>admin_login_filter</filter-name>
+        <url-pattern>/dashboard</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>dashboard_data</filter-name>
+        <filter-class>filters.DashboardDataCollector</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>dashboard_data</filter-name>
+        <url-pattern>/dashboard</url-pattern>
+    </filter-mapping>
+
+
+
+    <filter-mapping>
+        <filter-name>admin_login_filter</filter-name>
+        <url-pattern>/admin.jsp</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>admin_logout</servlet-name>
+        <servlet-class>servlets.AdminLogout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>admin_logout</servlet-name>
+        <url-pattern>/admin_logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>upload</servlet-name>
+        <servlet-class>servlets.AddQuestion</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>upload</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
+    <filter-mapping>
+        <filter-name>admin_login_filter</filter-name>
+        <url-pattern>/upload</url-pattern>
+    </filter-mapping>
+
+
+
+</web-app>

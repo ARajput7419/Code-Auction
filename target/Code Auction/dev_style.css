@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(bgimage.png);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+header{
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+}
+.logo{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 90%;
+    margin: 2rem auto 0;
+    min-height: 80vh;
+    color: whitesmoke;
+    line-height: 1.5;
+}
+main p{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.2rem;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.login{
+    display: none;
+}
+.login.active{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.logo_text{
+    position: absolute;
+    left: 75px;
+    color: #3CD4FD;
+    font-size: 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bolder;
+}
+.mail{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+.phone{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+.hero-section{
+    display: flex;
+    flex-wrap: wrap;
+}
+h1{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 4rem;
+    color: white;
+}
+.image-section{
+    width: 550px;
+    margin: 1rem 3rem 3rem 0;
+}
+.main-image{
+    width: 100%;
+    min-width: 550px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px #777;
+}
+
+.hero-section div p{
+    margin-top: 1.5rem;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.hero-text{
+    margin-top: 1rem;
+    background-color: #ffffff4f;
+    border-radius: 10px;
+    padding: 2rem;
+    height:max-content;
+    min-height: 500px;
+    flex:1;
+    min-width: 300px;
+    word-spacing: 2px;
+    backdrop-filter: blur(8px);
+    box-shadow: 3px 3px 8px #777;
+}
+.team-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 450px;
+}
+
+.btn{
+    margin-top: 1.5rem;
+    width: max-content;
+    appearance: none;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding : 8px 12px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+}
+.btn:hover{
+    background-color: #002231;
+    color: #3CD4FD;
+}
+
+footer span{
+    font-size: 1.3rem;
+}
+
+footer{
+    width: 90%;
+    color:white;
+    margin: 2rem auto 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem 0px;
+    text-align: center;
+}
+.admin{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #3CD4FD;
+    margin-right: 1rem;
+    transition: all 0.2s ease-in;
+}
+.admin:hover{
+    color: #3cd3fdc2;
+    font-size: 1.4rem;
+}
+.Logout{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #3CD4FD;
+    margin-right: 1rem;
+    display: none;
+    transition: all 0.2s ease-in;
+}
+.nav_item{
+    gap: 0px 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Logout:hover{
+    color: #3cd3fdc2;
+    font-size: 1.4rem;
+}
+.Logout.active{
+    display: flex;
+}
