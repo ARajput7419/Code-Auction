@@ -8,6 +8,20 @@
         <welcome-file>/home.jsp</welcome-file>
     </welcome-file-list>
 
+
+    <filter>
+        <filter-name>ip</filter-name>
+        <filter-class>filters.IPFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ip</filter-name>
+        <url-pattern>/problems.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>ip</filter-name>
+        <url-pattern>/problems</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>problems</servlet-name>
         <jsp-file>/problems.jsp</jsp-file>
@@ -22,6 +36,7 @@
         <servlet-name>registration</servlet-name>
         <servlet-class>servlets.Registration</servlet-class>
     </servlet>
+
 
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
@@ -41,6 +56,7 @@
         <filter-name>login</filter-name>
         <filter-class>filters.Login</filter-class>
     </filter>
+
     <filter-mapping>
         <filter-name>login</filter-name>
         <url-pattern>/problems</url-pattern>
@@ -54,6 +70,17 @@
         <filter-name>problem_collector</filter-name>
         <url-pattern>/problems</url-pattern>
     </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>ip</filter-name>
+        <url-pattern>/login.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>ip</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>servlet_login</servlet-name>
         <jsp-file>/login.jsp</jsp-file>
@@ -63,6 +90,12 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+
+    <filter-mapping>
+        <filter-name>ip</filter-name>
+        <url-pattern>/reset</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>reset</servlet-name>
         <servlet-class>servlets.Reset</servlet-class>
@@ -71,6 +104,12 @@
         <servlet-name>reset</servlet-name>
         <url-pattern>/reset</url-pattern>
     </servlet-mapping>
+
+    <filter-mapping>
+        <filter-name>ip</filter-name>
+        <url-pattern>/submit</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>submit</servlet-name>
         <servlet-class>servlets.Submit</servlet-class>
@@ -147,6 +186,28 @@
         <url-pattern>/upload</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>status_filter</filter-name>
+        <filter-class>filters.DashboardDataCollector</filter-class>
+    </filter>
 
+    <filter-mapping>
+        <filter-name>status_filter</filter-name>
+        <url-pattern>/status.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>ip</filter-name>
+        <url-pattern>/download_template</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>download_template</servlet-name>
+        <servlet-class>servlets.DownloadTemplate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>download_template</servlet-name>
+        <url-pattern>/download_template</url-pattern>
+    </servlet-mapping>
 
 </web-app>

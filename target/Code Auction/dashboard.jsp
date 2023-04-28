@@ -71,8 +71,6 @@ if( temp != null) request.setAttribute("message",temp);
           <br><br>
           <label for="tname">Team name:</label>
 
-          <input type="text" id="teamName" name="team" >
-
           <select name="team" id="teamName">
 
             <c:forEach var="team" items="${requestScope.results}">

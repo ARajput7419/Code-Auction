@@ -26,6 +26,7 @@ if( temp != null) request.setAttribute("message",temp);
                     <span class="logo_text">ankalan</span>
                 </div>
                 <div class="nav_item">
+                    <a class="nav-btn" href="status.jsp">Status</a>
                     <a class="admin" href="admin.jsp">Admin</a>
                 </div>
 
@@ -50,15 +51,6 @@ if( temp != null) request.setAttribute("message",temp);
                 </div>
             </div>
         </main>
-
-
-        <footer>
-                    <hr>
-                    <span>Contact Us</span>
-                    <a class="mail" href="mailto:aniket.mca21@cs.du.ac.in">Mail us</a>
-                    <a class="phone" href="tel:+7419249457">Phone</a>
-                </footer>
-
 
     </div>
     <c:if test="${message!= null}">

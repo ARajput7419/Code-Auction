@@ -1,6 +1,7 @@
 package filters;
 
 
+import database.dao.AssignedDAO;
 import database.dao.QuestionDAO;
 import database.entity.Assigned;
 import database.entity.Question;
@@ -27,8 +28,15 @@ public class QuestionCollector implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
+
         Team team = (Team) session.getAttribute("team");
         List<Assigned> questions = (List<Assigned>) session.getAttribute("questions");
+
+        if (questions.size() == 0 ){
+            response.sendRedirect("/status.jsp?message=No Question Purchased");
+            return;
+        }
+
         try {
             String temp = request.getParameter("number");
             int problem_number = temp == null ? 1 : Integer.parseInt(temp);
@@ -44,6 +52,7 @@ public class QuestionCollector implements Filter {
             request.setAttribute("current",problem_number);
             request.setAttribute("team",team.getName());
             request.setAttribute("level",question.getLevel());
+            request.setAttribute("isSolved",assigned.getFilename()!=null);
             filterChain.doFilter(request,response);
         }
         catch(Exception exception){

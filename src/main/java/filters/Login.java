@@ -51,6 +51,10 @@ public class Login implements Filter {
                         filterChain.doFilter(request,response);
                         return;
                     }
+                    else{
+                        response.sendRedirect(request.getServletContext().getContextPath()+"/login.jsp");
+                        return;
+                    }
                 }
 
             }
