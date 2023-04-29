@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class QuestionCollector implements Filter {
@@ -22,6 +23,7 @@ public class QuestionCollector implements Filter {
 
     QuestionDAO questionDAO = new QuestionDAO();
 
+    AssignedDAO assignedDAO = new AssignedDAO();
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
@@ -30,35 +32,41 @@ public class QuestionCollector implements Filter {
         HttpSession session = request.getSession();
 
         Team team = (Team) session.getAttribute("team");
-        List<Assigned> questions = (List<Assigned>) session.getAttribute("questions");
-
-        if (questions.size() == 0 ){
-            response.sendRedirect(request.getServletContext().getContextPath()+"/status.jsp");
-            return;
-        }
-
+        List<Assigned> questions = null;
         try {
-            String temp = request.getParameter("number");
-            int problem_number = temp == null ? 1 : Integer.parseInt(temp);
-            int total = questions.size();
-            problem_number = problem_number <= 0 ? total : (problem_number > total ? 1 : problem_number);
-            Assigned assigned = questions.get(problem_number - 1);
-            Question question = questionDAO.get(assigned.getId());
-            int total_solved = 0;
-            for(Assigned assigned1 : questions) if(assigned1.getFilename()!=null) total_solved++;
-            request.setAttribute("statement",question.getStatement().replace("\n","<br>"));
-            request.setAttribute("total",questions.size());
-            request.setAttribute("solved",total_solved);
-            request.setAttribute("current",problem_number);
-            request.setAttribute("number",question.getId());
-            request.setAttribute("team",team.getName());
-            request.setAttribute("level",question.getLevel());
-            request.setAttribute("isSolved",assigned.getFilename()!=null);
-            filterChain.doFilter(request,response);
+            questions = assignedDAO.allAssigned(team.getName());
+
+            if (questions.size() == 0) {
+                response.sendRedirect(request.getServletContext().getContextPath() + "/status.jsp");
+                return;
+            }
+
+            try {
+                String temp = request.getParameter("number");
+                int problem_number = temp == null ? 1 : Integer.parseInt(temp);
+                int total = questions.size();
+                problem_number = problem_number <= 0 ? total : (problem_number > total ? 1 : problem_number);
+                Assigned assigned = questions.get(problem_number - 1);
+                Question question = questionDAO.get(assigned.getId());
+                int total_solved = 0;
+                for (Assigned assigned1 : questions) if (assigned1.getFilename() != null) total_solved++;
+                request.setAttribute("statement", question.getStatement().replace("\n", "<br>"));
+                request.setAttribute("total", questions.size());
+                request.setAttribute("solved", total_solved);
+                request.setAttribute("current", problem_number);
+                request.setAttribute("number", question.getId());
+                request.setAttribute("team", team.getName());
+                request.setAttribute("level", question.getLevel());
+                request.setAttribute("isSolved", assigned.getFilename() != null);
+                filterChain.doFilter(request, response);
+            } catch (Exception exception) {
+                request.setAttribute("message", "Question Loading Failed !!!");
+                filterChain.doFilter(request, response);
+            }
         }
-        catch(Exception exception){
-            request.setAttribute("message","Question Loading Failed !!!");
-            filterChain.doFilter(request,response);
+        catch (Exception e ){
+            request.setAttribute("message", "Question Loading Failed !!!");
+            filterChain.doFilter(request, response);
         }
 
 
