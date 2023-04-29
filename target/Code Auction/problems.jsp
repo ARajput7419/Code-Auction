@@ -22,7 +22,7 @@ if( temp != null) request.setAttribute("message",temp);
                 <div class="app_logo">Code Auction</div>
                 <div class="info">
                 <c:if test="${isSolved}">
-                    <div class="isSolved"><i class="fa-solid fa-check"></i> solved </div>
+                    <div class="isSolved"><i class="fa-solid fa-check"></i> Solved </div>
                 </c:if>
                     <div class="display_question">Question Solved - <span class="solved_question">${solved}</span></div>
                     <div class="app_team">${team}</div>
@@ -42,8 +42,8 @@ if( temp != null) request.setAttribute("message",temp);
                         <a href="problems?number=${current+1}" style="text-decoration: none;color:black;"><button class="btn next">Next</button></a>
                     </div>
                     <div class="upload">
-                    <a href="download_template?number=${current}" style="text-decoration: none;color:black;"><button class="btn">Download Template</button></a>
-                    <form action="submit?number=${current}" method="post" enctype="multipart/form-data">
+                    <a href="download_template?number=${number}" style="text-decoration: none;color:black;"><button class="btn">Download Template</button></a>
+                    <form action="submit?number=${current}" method="post" enctype="multipart/form-data" style="margin-top:3%">
                         <input class="file-upload" type="file" name="file"/>
                         <button type="submit" class="btn submit">Submit</button>
                      </form>

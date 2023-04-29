@@ -33,7 +33,7 @@ public class QuestionCollector implements Filter {
         List<Assigned> questions = (List<Assigned>) session.getAttribute("questions");
 
         if (questions.size() == 0 ){
-            response.sendRedirect("/status.jsp?message=No Question Purchased");
+            response.sendRedirect(request.getServletContext().getContextPath()+"/status.jsp");
             return;
         }
 
@@ -50,6 +50,7 @@ public class QuestionCollector implements Filter {
             request.setAttribute("total",questions.size());
             request.setAttribute("solved",total_solved);
             request.setAttribute("current",problem_number);
+            request.setAttribute("number",question.getId());
             request.setAttribute("team",team.getName());
             request.setAttribute("level",question.getLevel());
             request.setAttribute("isSolved",assigned.getFilename()!=null);

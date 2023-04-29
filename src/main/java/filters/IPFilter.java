@@ -30,7 +30,7 @@ public class IPFilter implements Filter {
                     return;
                 }
             }
-            response.getWriter().write("<h1>Not Allowed to Access</h1>");
+            response.getWriter().write("<h1>Not Allowed to Access : "+ipAddress+"</h1>");
         }
         catch (Exception e){
             response.getWriter().write("<h1>Try Again...</h1>");

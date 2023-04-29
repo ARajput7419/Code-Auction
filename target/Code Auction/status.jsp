@@ -16,15 +16,9 @@ if( temp != null) request.setAttribute("message",temp);
           <link rel="stylesheet" href="toast.css">
   </head>
   <body>
-    <header>
-      <h1>Admin Page</h1>
-      <nav>
-        <ul>
-          <li><a href="admin.jsp">Admin</a></li>
-          <li><a href="admin_logout">Logout</a></li>
-        </ul>
-      </nav>
-    </header>
+    <header class="txt-header">
+         <h1>Auction Status</h1>
+       </header>
     <div class="login-wrapper">
 
         <h2>Dashboard</h2>
@@ -59,9 +53,6 @@ if( temp != null) request.setAttribute("message",temp);
 
     </div>
     </main>
-    <footer>
-      <p>&copy; 2023 - Admin Page</p>
-    </footer>
 
     <c:if test="${message!= null}">
                     <div id="snackbar">${message}</div>
