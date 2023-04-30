@@ -20,7 +20,6 @@ public class Login implements Filter {
     }
 
     TeamDAO teamDAO = new TeamDAO();
-    AssignedDAO assignedDAO = new AssignedDAO();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -43,11 +42,9 @@ public class Login implements Filter {
             try {
                 Team team_obj = teamDAO.get(team);
                 if (team_obj != null) {
-                    List<Assigned> questions = assignedDAO.allAssigned(team);
                     if (team_obj.getSecret().equals(secret) && team_obj.isEnable()){
                         session.setMaxInactiveInterval(7200);
                         session.setAttribute("team",team_obj);
-                        session.setAttribute("questions",questions);
                         filterChain.doFilter(request,response);
                         return;
                     }
